@@ -1,0 +1,46 @@
+{
+  "pluginAlias": "MelCloudHome",
+  "pluginType": "platform",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "email": {
+        "title": "MELCloud Email",
+        "type": "string",
+        "format": "email"
+      },
+      "password": {
+        "title": "MELCloud Password",
+        "type": "string",
+        "format": "password"
+      },
+      "pollingIntervalSeconds": {
+        "title": "Context Polling Interval (seconds)",
+        "type": "integer",
+        "default": 60,
+        "minimum": 30
+      },
+      "enableFan": {
+        "title": "Enable Fan Service",
+        "type": "boolean",
+        "default": true
+      },
+      "enableSwing": {
+        "title": "Enable Swing Control",
+        "type": "boolean",
+        "default": true
+      },
+      "enableStandby": {
+        "title": "Enable Standby Switch",
+        "type": "boolean",
+        "default": false
+      },
+      "enableDhw": {
+        "title": "Enable DHW Accessory",
+        "type": "boolean",
+        "default": true
+      }
+    },
+    "required": ["email", "password"]
+  }
+}

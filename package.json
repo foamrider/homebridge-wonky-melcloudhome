@@ -1,0 +1,39 @@
+{
+  "name": "homebridge-wonky-melcloudhome",
+  "version": "0.0.1",
+  "description": "Homebridge platform plugin for MELCloud Home",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "commonjs",
+  "files": [
+    "dist",
+    "config.schema.json",
+    "README.md"
+  ],
+  "keywords": [
+    "homebridge-plugin",
+    "homebridge",
+    "melcloud",
+    "homekit"
+  ],
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "peerDependencies": {
+    "homebridge": ">=1.7.0"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "eslint . --ext .ts",
+    "watch": "tsc -w -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "eslint": "^8.57.0",
+    "homebridge": "^1.8.0",
+    "typescript": "^5.3.3"
+  }
+}
