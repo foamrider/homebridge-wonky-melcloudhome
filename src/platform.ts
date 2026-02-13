@@ -141,13 +141,17 @@ export class MelCloudHomePlatform implements DynamicPlatformPlugin {
       this.registerAccessory(accessory, unit, this.client, this.configData);
     }
 
-    for (const accessory of existing.values()) {
-      this.log.info("Removing unit: %s", accessory.displayName);
-      this.api.unregisterPlatformAccessories(PLUGIN_NAME, PLATFORM_NAME, [accessory]);
-      this.accessories = this.accessories.filter(
-        (item) => item.UUID !== accessory.UUID,
-      );
-      this.accessoryMap.delete(accessory.UUID);
+    if (units.length > 0) {
+      for (const accessory of existing.values()) {
+        this.log.info("Removing unit: %s", accessory.displayName);
+        this.api.unregisterPlatformAccessories(PLUGIN_NAME, PLATFORM_NAME, [accessory]);
+        this.accessories = this.accessories.filter(
+          (item) => item.UUID !== accessory.UUID,
+        );
+        this.accessoryMap.delete(accessory.UUID);
+      }
+    } else if (this.accessories.length > 0) {
+      this.log.warn("API returned no units; keeping %s cached accessories.", this.accessories.length);
     }
   }
 

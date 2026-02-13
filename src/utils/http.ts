@@ -26,6 +26,10 @@ export class HttpClient {
     this.userAgent = userAgent;
   }
 
+  clearCookies(): void {
+    this.cookieJar.clear();
+  }
+
   async request(options: RequestOptions): Promise<HttpResponse> {
     return this.pacer.run(async () => {
       const headers: Record<string, string> = {

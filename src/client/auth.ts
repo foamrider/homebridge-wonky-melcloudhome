@@ -29,6 +29,7 @@ export class MelCloudAuth {
   }
 
   async login(email: string, password: string): Promise<void> {
+    this.http.clearCookies();
     const loginPage = await this.fetchLoginPage();
     await this.submitCredentials(loginPage, email, password);
     await this.validateSession();
